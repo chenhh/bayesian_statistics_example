@@ -138,6 +138,18 @@ def central_limit_theorem(n_sample=1000, n_point=10000):
               f"skew:{z_skew:.2f}, kurt:{z_kurt:.2f}")
 
 
+def white_noise(n_point=10000):
+    from statsmodels.tsa.stattools import (acovf, acf)
+    import matplotlib.pyplot as plt
+    from statsmodels.graphics.tsaplots import plot_acf
+    values = np.random.rand(n_point)
+    gammas = acovf(values)
+    rhos = acf(values)
+    print(f"gamma:{gammas}, rho:{rhos}")
+    plot_acf(values)
+    plt.show()
+
+
 if __name__ == '__main__':
     # values = np.random.randn(100000)
     # variance(values)
@@ -147,4 +159,5 @@ if __name__ == '__main__':
     # sample_distribution()
     # binomial_distribution()
     # independent_binomial_dist()
-    central_limit_theorem()
+    # central_limit_theorem()
+    white_noise()
