@@ -1,1 +1,1 @@
-# statistics_example
+# Bayesian statistics example
